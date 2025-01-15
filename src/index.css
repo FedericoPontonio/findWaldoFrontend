@@ -1,0 +1,17 @@
+#root {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  min-height: 100vh;
+  height: fit-content;
+}
+
+
+body {
+  margin: 0;
+}
+
+* {
+  border: solid black 1px;
+
+}

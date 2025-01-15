@@ -1,0 +1,46 @@
+.gameOneComponent {
+    display: flex;
+    justify-content: center;
+        flex-grow: 1;
+    background-image: url('../../assets/backgroundGameOne.png');
+    position: relative;
+    width: fit-content;
+}
+
+.firstCharacterGameOne, .secondCharacterGameOne, .thirdCharacterGameOne {
+    border: solid white;
+    position: absolute;
+}
+
+.firstCharacterGameOne {
+  width: 5%;
+  height: 2.5%;
+  top: 60.5%;
+  right: 62.5%;
+}
+.secondCharacterGameOne {
+    top: 45.5%;
+    right: 92%;
+    width: 4%;
+    height: 4%;
+}
+.thirdCharacterGameOne {
+    width: 5%;
+    height: 3.2%;
+    top: 64.5%;
+    right: 15.2%;
+}
+
+.gameOneImage {
+    width: 100%;
+}
+
+
+
+/* @media screen and (max-width: 1200px) {
+    .gameOneImage {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+} */

@@ -1,0 +1,29 @@
+.homepageComponent {
+    position: relative;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Ensure content doesn't overflow */
+}
+
+.homepageComponent::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../../assets/homepageBackground.jpg');
+    background-size: cover;
+    opacity: 0.5; /* Set the opacity for the background image */
+    z-index: -1; /* Ensure the background is behind the content */
+}
+
+.caption {
+    font-size: 40px;
+    z-index: 1; /* Ensure the caption is above the background */
+    font-family: 'Kablammo', cursive; /* Apply the fun and over-the-top font */
+
+}

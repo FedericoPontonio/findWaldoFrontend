@@ -1,0 +1,48 @@
+.headerComponent {
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    font-family: sans-serif;
+    font-size: 4vh;
+    background-color: rgb(53, 120, 49);
+    padding: 2%;
+    background-image: url('../../assets/backgroungHeader.png');
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1;
+}
+.returnHome:hover {
+    cursor: pointer;
+    animation: scaleOpacity 0.5s ease-in-out forwards;
+}
+
+.iconsDiv {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-around;
+    height: inherit;
+}
+.iconsDiv>img {
+    padding: 1%;
+    border-radius: 10px;
+
+}
+
+.foundCharacter {
+    background-color: rgb(124, 204, 124);
+    animation: scaleOpacity 0.5s ease-in-out;
+}
+
+@keyframes scaleOpacity {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.03);
+        opacity: 0.8;
+    }
+}
