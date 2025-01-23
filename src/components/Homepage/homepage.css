@@ -4,8 +4,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     overflow: hidden; /* Ensure content doesn't overflow */
+    background-color: rgb(11 13 34);
+
 }
 
 .homepageComponent::before {
@@ -15,15 +17,55 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('../../assets/homepageBackground.jpg');
-    background-size: cover;
+    /* background-color: url('../../assets/homepageBackground.jpg');
+    background-size: cover; */
     opacity: 0.5; /* Set the opacity for the background image */
     z-index: -1; /* Ensure the background is behind the content */
 }
 
-.caption {
-    font-size: 40px;
-    z-index: 1; /* Ensure the caption is above the background */
-    font-family: 'Kablammo', cursive; /* Apply the fun and over-the-top font */
 
+.choseGameText {
+    font-family: sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    color: rgb(160, 160, 26);
+}
+
+.gameBoxes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    min-width: 80vw;
+}
+.gameBoxes>img {
+    width: 300px;
+    max-width: 70vw;
+    margin: 2%;
+    border: solid rgb(77, 77, 34, 0.5);
+    transition: transform 0.5s ease, border 0.5s ease;
+}
+.gameBoxes>img:hover {
+    transform: scale(1.2);
+    border: solid yellow;
+}
+
+footer {
+    position: fixed;
+    bottom: 2%;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+footer>a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    border-radius: 30px;
+    padding: 5px;
+}
+footer>a:hover {
+    transition: 1s;
+    background-color: rgb(22, 25, 60);
+    transform: scale(1.2);
 }

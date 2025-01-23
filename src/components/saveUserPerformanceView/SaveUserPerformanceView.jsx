@@ -37,15 +37,27 @@ function SaveUserPerformanceView({currentGame, gameOver, timerValues, stopStopwa
     } 
 
 
+    function evaluateStyle () {
+      if (!userWantsToSaveScore) {
+        return decorationForButtonStyleNo
+      }
+    }
+    const decorationForButtonStyleNo = {
+      transform: 'translateX(-100%)'
+    }
+
+
 
     return(
         <div className="SaveUserPerformanceView">
             <div className='internalUIDiv'>
                 <h3>Do you want to save your score?</h3>
-                <button onClick={()=>(setUserWantsToSaveScore(!userWantsToSaveScore))}>
-                    {userWantsToSaveScore && 'Selected: Yes'}
-                    {!userWantsToSaveScore && 'Selected: No'}
-                </button>
+                <div className='buttonSwitch' onClick={()=>(setUserWantsToSaveScore(!userWantsToSaveScore))}>
+                  <div style={{color:'transparent'}}>{userWantsToSaveScore && 'Yes'}</div>
+                  <div style={{color:'transparent'}}>{!userWantsToSaveScore && 'No'}</div>
+                    
+                    <div className='devorationForButton' style={evaluateStyle()}></div>
+                </div>
                 
                 {userWantsToSaveScore &&
                     <>
@@ -59,7 +71,7 @@ function SaveUserPerformanceView({currentGame, gameOver, timerValues, stopStopwa
                     </>
                 }
                 {!userWantsToSaveScore && <button onClick={()=>scoreboardRoute(currentGame)}>Go to the scoreboard</button>}
-                <button onClick={()=>window.location.reload()}>Play again</button>
+                <button onClick={()=>window.location.reload()}>Ignore and play again</button>
 
             </div>
             

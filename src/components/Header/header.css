@@ -1,6 +1,6 @@
 .headerComponent {
     display: grid;
-    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-columns: 1.5fr 2.5fr 1fr;
     justify-content: center;
     align-items: start;
     height: 60px;
@@ -8,11 +8,32 @@
     font-size: 4vh;
     background-color: rgb(53, 120, 49);
     padding: 2%;
-    background-image: url('../../assets/backgroungHeader.png');
+    background-color: rgb(155, 155, 89);
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1;
+}
+
+/* .decorationHeader {
+    position: absolute;
+    border-left: solid 500px transparent;
+    border-top:solid 500px transparent;
+    border-bottom:solid 500px transparent;
+    border-right:solid 500px rgb(170, 204, 17);
+    left: 60%;
+    top: 30%;
+    transform: rotate(260deg);
+    z-index: -2;
+} */
+
+.returnHome {
+    font-size: 35px;
+    z-index: 1; /* Ensure the caption is above the background */
+    font-family: 'Kablammo', cursive; /* Apply the fun and over-the-top font */
+    display: flex;
+    align-items: center;
+    gap: 5%;
 }
 .returnHome:hover {
     cursor: pointer;

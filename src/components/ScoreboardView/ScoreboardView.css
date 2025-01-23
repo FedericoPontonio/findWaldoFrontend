@@ -3,19 +3,34 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('../../assets/backgroundScoreboard.png');
+    background-color: rgb(11 13 34);
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
     width: 100vw;
     flex-direction: column;
+    color: rgb(160, 160, 26);;
 }
 
 .table{
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 20px;
     font-size: 3vw;
     font-family: sans-serif;
-    border: dotted rgb(93, 81, 41) 1px;
-    background-color: rgb(154, 171, 171);
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgb(155, 155, 89);
+    overflow: auto;
+    color: rgb(11 13 34);
+}
+.table>div {
+    border-left: dashed black;
+    border-top: dashed black;
+    border-style: inset;
+}
+.columnTitle {
+    font-style: oblique;
+    font-variant: small-caps;
+    font-weight: 700;
 }

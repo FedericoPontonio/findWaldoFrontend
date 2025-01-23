@@ -8,13 +8,56 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 20px;
 }   
 
 
 .internalUIDiv {
     background-color: rgb(183, 181, 181, 0.8);
-    display: flex;
+    display: grid;
+    gap: 3%;
     border-radius: 10%;
-    flex-direction: column;
-    padding: 10%;
+    padding: 50px;
+    min-height: 30vh;
+}
+
+button{
+    background-color: rgb(155, 155, 89);
+    color: rgb(11 13 34);
+    font-size: 20px;
+    padding: 3px;
+    transition: 0.2s;
+}
+button:hover {
+    transform: scale(1.1);
+
+}
+
+input {
+    background-color: rgb(11 13 34);
+    color: rgb(155, 155, 89);
+    font-size: 20px;
+    font-family: sans-serif;
+
+}
+
+.buttonSwitch {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    background-color: rgb(11 13 34);
+    height: 40px;
+    width: 80px;
+    border-radius: 50px;
+    color: rgb(155, 155, 89);
+    font-family: sans-serif;
+}
+.devorationForButton {
+    position: relative;
+    left: 13%;
+    width: 50%;
+    height: 100%;
+    background-color: rgb(155, 155, 89);
+    border-radius: 50%;
+    transition: 1s;
 }

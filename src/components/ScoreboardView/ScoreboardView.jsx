@@ -34,8 +34,8 @@ function ScoreboardView({gameResults}) {
         <div className="scoreboardView">
             <h1>Scoreboard of Game {gameResults}</h1>
               <div className='table'>
-                <div>Username</div>
-                <div>Time</div>
+                <div className='columnTitle'>Username</div>
+                <div className='columnTitle'>Time</div>
                 {data.length<1 && <div>Loading...</div>}
                 {data.map((data, index) => (
                   <>
