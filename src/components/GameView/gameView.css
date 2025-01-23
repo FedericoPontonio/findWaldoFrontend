@@ -1,0 +1,39 @@
+
+.firstCharacterGameOne {
+  width: 5%;
+  height: 2.5%;
+  top: 60.5%;
+  right: 62.5%;
+}
+.secondCharacterGameOne {
+    top: 45.5%;
+    right: 92%;
+    width: 4%;
+    height: 4%;
+}
+.thirdCharacterGameOne {
+    width: 5%;
+    height: 3.2%;
+    top: 64.5%;
+    right: 15.2%;
+}
+
+
+.firstCharacterGameTwo {
+  width: 4%;
+  height: 2%;
+  top: 50.5%;
+  right: 20.5%;
+}
+.thirdCharacterGameTwo {
+    top: 17.5%;
+    right: 45.5%;
+    width: 6%;
+    height: 4%;
+}
+.secondCharacterGameTwo {
+    width: 7%;
+    height: 5%;
+    top: 89.5%;
+    right: 76.5%;
+}

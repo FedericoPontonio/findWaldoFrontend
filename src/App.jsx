@@ -1,61 +1,101 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Header from './components/Header/Header'
 import Homepage from './components/Homepage/Homepage'
-import GameOne from '../src/components/GameOne/GameOne'
-import gameOne from '../src/components/GameOne/GameOne';
+import GameView from './components/GameView/GameView'
+import ScoreboardView from './components/ScoreboardView/ScoreboardView'
 
 
 
 function App() {
-  const [mainBodyContent, setmainBodyContent] = useState(()=> <Homepage startStopwatch = {startStopwatch} startFirstGame = {startFirstGame} />);
+  const [currentView, setcurrentView] = useState('homepage');
   const [firstCharacterFound, setFirstCharacterFound] = useState(false);
-  const [secondCharacterFound, setsecondCharacterFound] = useState(false);
-  const [thirdCharacterFound, setthirdCharacterFound] = useState(false);
+  const [secondCharacterFound, setSecondCharacterFound] = useState(false);
+  const [thirdCharacterFound, setThirdCharacterFound] = useState(false);
+  const [currentGame, setCurrentGame] = useState(null)
+  const [timerValues, setTimerValues] = useState({seconds: 0, milliseconds: 0});
+  const [gameOver, setGameOver] = useState(false)
+  const [gameResults, setGameResults] = useState()
 
-  function gameOver() {
-    if(firstCharacterFound && secondCharacterFound && thirdCharacterFound) {
-      console.log('game over')
-    }
-  }
-  function characterFound(nthCharacter) {
+  function characterFoundSetter(nthCharacter) {
     if (nthCharacter == 1) {
       setFirstCharacterFound(true)
     }
     else if (nthCharacter == 2) {
-      setsecondCharacterFound(true)
+      setSecondCharacterFound(true)
     }
     else if (nthCharacter == 3) {
-      setthirdCharacterFound(true)
+      setThirdCharacterFound(true)
     }
-    console.log('here')
-    gameOver()    //why doesn't this trigger???
   };
-  
-  function startStopwatch() {
-    setStopwatchWorking(true)
-  }
-  function startFirstGame() {
-    setmainBodyContent(()=> <GameOne handleCharacterFound = {characterFound} />)
-  }
-  const [stopwatchWorking, setStopwatchWorking] = useState(false);
 
-  function homeRoute () {
-    setmainBodyContent(()=> <Homepage startStopwatch = {startStopwatch} startFirstGame = {startFirstGame}  />)
+  //transfer timer from stopwatch to App
+  const updateTimerValues = (seconds, milliseconds) => {
+    setTimerValues({seconds, milliseconds})
+  };
+
+  function stopStopwatch (){
     setStopwatchWorking(false)
   }
 
   
+//trigger game over
+  useEffect(() => {
+    if (firstCharacterFound && secondCharacterFound && thirdCharacterFound) {
+      setGameOver(true);
+    }
+  }, [firstCharacterFound, secondCharacterFound, thirdCharacterFound]);
 
+  const [stopwatchWorking, setStopwatchWorking] = useState(false);
 
+  function homeRoute () {
+    setcurrentView('homepage')
+    setFirstCharacterFound(false);
+    setSecondCharacterFound(false);
+    setThirdCharacterFound(false);
+    setStopwatchWorking(false);
+    setCurrentGame(null);
+    setGameOver(false);
+  }
+
+  function scoreboardRoute (currentGame) {
+    setcurrentView('scoreboard');
+    setFirstCharacterFound(false);
+    setSecondCharacterFound(false);
+    setThirdCharacterFound(false);
+    setStopwatchWorking(false);
+    setCurrentGame(null);
+    setGameOver(false);
+    setGameResults(currentGame)
+  }
+  
 
   return (
     <>
-      <Header handleClick = {homeRoute} stopwatchWorking = {stopwatchWorking} charactersFound = {{
+      <Header
+      handleClick = {homeRoute}
+      stopwatchWorking = {stopwatchWorking}
+      updateTimerValues = {updateTimerValues}
+      gameOver = {gameOver}
+      charactersFound = {{
         firstCharacterFound,
         secondCharacterFound,
         thirdCharacterFound,
-        }} />
-      {mainBodyContent}
+        }}
+        currentGame = {currentGame}
+      />
+      {currentView == 'homepage' && <Homepage startStopwatch = {()=> setStopwatchWorking(true)} startFirstGame = {()=>{setcurrentView('gameView');setCurrentGame(1)}} startSecondGame = {()=>{setcurrentView('gameView');setCurrentGame(2)}} />}
+      {currentView == 'gameView' && <GameView
+        handleCharacterFound={characterFoundSetter}
+        firstCharacterFound={firstCharacterFound}
+        secondCharacterFound={secondCharacterFound}
+        thirdCharacterFound={thirdCharacterFound}
+        currentGame = {currentGame}
+        gameOver = {gameOver}
+        timerValues = {timerValues}
+        stopStopwatch = {stopStopwatch}
+        scoreboardRoute={scoreboardRoute}
+      />}
+      {currentView == 'scoreboard' && <ScoreboardView gameResults={gameResults} />}
     </>
   )
 }

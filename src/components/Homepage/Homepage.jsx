@@ -3,7 +3,7 @@ import './homepage.css'
 
 
 
-function Homepage({startStopwatch, startFirstGame}) {
+function Homepage({startStopwatch, startFirstGame, startSecondGame}) {
 
   
     return (
@@ -16,7 +16,7 @@ function Homepage({startStopwatch, startFirstGame}) {
         </div>
         <div className='gameBoxes'>
           <button onClick={()=>{startStopwatch(); startFirstGame()}}>Start First Game</button>
-          <button>Start Second Game</button>
+          <button onClick={()=>{startStopwatch(); startSecondGame()}}>Start Second Game</button>
           <button>Start Third Game</button>
         </div>
       </div>

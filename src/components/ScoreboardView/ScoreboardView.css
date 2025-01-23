@@ -1,0 +1,21 @@
+
+.scoreboardView{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../../assets/backgroundScoreboard.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    flex-direction: column;
+}
+
+.table{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-size: 3vw;
+    font-family: sans-serif;
+    border: dotted rgb(93, 81, 41) 1px;
+    background-color: rgb(154, 171, 171);
+}

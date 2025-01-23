@@ -1,24 +1,19 @@
-// import { useState } from 'react'
 import './header.css'
 import Stopwatch from '../Stopwatch/Stopwatch'
-import { griffith, saitama, sonic } from '../../utils/characterIconsProvider'
+import  IconsDiv  from '../IconsDiv/IconsDivHeader'
 
-function Header({handleClick, stopwatchWorking, charactersFound}) {
-
-    
-
+function Header({handleClick, stopwatchWorking, charactersFound, currentGame, updateTimerValues, gameOver}) {
 
 return (
     <div className='headerComponent'>
         <div onClick={handleClick} className='returnHome'>
             Character Finder
         </div>
-        <div className='iconsDiv'>
-            <img src={saitama} alt="saitama icon" className={charactersFound.firstCharacterFound ? 'foundCharacter' : ''} />
-            <img src={griffith} alt="griffith icon" className={charactersFound.secondCharacterFound ? 'foundCharacter' : ''} />
-            <img src={sonic} alt="sonic icon" className={charactersFound.thirdCharacterFound ? 'foundCharacter' : ''} />
-        </div>
-        {/* {stopwatchWorking && <Stopwatch />} */}
+        {/* I can add a class to iconsdiv so that when it has both charactersFound and [scope] classes:
+            if (it's the one in the header) {it gives it the background color}
+            else if (it's the one in the gameComponent) {it gives it display none} */}
+        <IconsDiv currentGame = {currentGame} charactersFound = {charactersFound} />
+        {stopwatchWorking && <Stopwatch updateTimerValues = {updateTimerValues} gameOver = {gameOver} />}
     </div>
 
 )

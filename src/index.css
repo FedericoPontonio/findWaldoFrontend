@@ -11,7 +11,110 @@ body {
   margin: 0;
 }
 
+
+.gameComponent {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+  background-image: url('../../assets/backgroundGameOne.png');
+  position: relative;
+  width: fit-content;
+}
+
+.gameImage {
+  width: 100%;
+}
+
+.failedClickMessage, .successfulClickMessage {
+  font-size: 40px;
+  top: 20%;
+  position: fixed;
+
+}
+.failedClickMessage {
+  background-color: rgb(230, 73, 73, 0.7);
+}
+.successfulClickMessage {
+  background-color: rgb(49, 128, 49, 0.7);
+}
+
+.firstCharacterGameOne, .secondCharacterGameOne, .thirdCharacterGameOne, .firstCharacterGameTwo, .thirdCharacterGameTwo, .secondCharacterGameTwo {
+  position: absolute;
+  z-index: 1;
+}
+
+
+.popupContainer {
+  position: absolute;
+  /* background-color: rgba(25, 25, 29, 0.8); */
+  padding: 20px;
+  width: 100px;
+  animation: originOnPointer;
+  animation-duration: 0.2s;
+  transform-origin: top left;
+  transform-box: fill-box;
+
+}
+.popupContainer>.iconsDiv {
+  background-color: rgba(25, 25, 29, 0.8);
+}
+
+@keyframes originOnPointer {
+  0% {
+      transform: scaleX(0) scaleY(0);
+  }
+  20% {
+    transform: scaleX(1) scaleY(0);
+  }
+  100% {
+      transform: scaleX(1) scaleY(1);
+  }
+}
+
+
+.popupContainer>div {
+  display: flex;
+  flex-direction: column;
+}
+.popupContainer>div>div {
+  border: dashed 1px black;
+  border-radius: 50px;
+}
+.popupContainer>div>div>img {
+  width: 4vw;
+  height: 4vw;
+}
+.popupContainer>div>div:hover {
+  animation: scaleAndColor;
+  animation-duration: 0.2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes scaleAndColor {
+  0% {
+    transform: scale(1);
+    background-color: rgba(25, 25, 29, 0.8);
+  }
+  100% {
+    transform: scale(1.1);
+    background-color: rgba(25, 25, 29, 1);
+  }
+}
+.foundCharacterPopup  {
+  display: none;
+}
+
+
+
+
+
+
+/* to be removed
+.firstCharacterGameOne, .secondCharacterGameOne, .thirdCharacterGameOne, .firstCharacterGameTwo, .thirdCharacterGameTwo, .secondCharacterGameTwo {
+  border: solid white;
+}
 * {
   border: solid black 1px;
 
-}
+} */
