@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import './homepage.css'
+import previewGameOne from '../../assets/previewGameOne.png'
+import previewGameTwo from '../../assets/previewGameTwo.png'
 
 
 
@@ -12,8 +14,8 @@ function Homepage({startStopwatch, startFirstGame, startSecondGame}) {
           SELECT A GAME
         </div>
         <div className='gameBoxes'>
-          <img alt='preview game one' src='../../src/assets/previewGame1.png' onClick={async()=>{await startFirstGame();startStopwatch()}}/>
-          <img alt='preview game two' src='../../src/assets/previewGame2.png' onClick={async()=>{await startSecondGame();startStopwatch()}}/>
+          <img alt='preview game one' src={previewGameOne} onClick={async()=>{await startFirstGame();startStopwatch()}}/>
+          <img alt='preview game two' src={previewGameTwo} onClick={async()=>{await startSecondGame();startStopwatch()}}/>
         </div>
         <footer>
         <a href="https://github.com/FedericoPontonio">

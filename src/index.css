@@ -16,7 +16,6 @@ body {
   display: flex;
   justify-content: center;
   flex-grow: 1;
-  background-image: url('../../assets/backgroundGameOne.png');
   position: relative;
   width: fit-content;
 }
